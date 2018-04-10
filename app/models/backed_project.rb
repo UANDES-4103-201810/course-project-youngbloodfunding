@@ -1,0 +1,2 @@
+class BackedProject < ApplicationRecord
+end

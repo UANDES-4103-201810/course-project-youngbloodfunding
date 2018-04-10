@@ -1,3 +1,3 @@
 Integrantes:
 Gianluca Fenzo
-Gianluca TRoncossi
+Gianluca Troncossi
