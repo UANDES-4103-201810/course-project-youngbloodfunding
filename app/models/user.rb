@@ -4,5 +4,6 @@ class User < ApplicationRecord
   has_many :backed_projects, through: :backers
   has_many :created_projects, through: :creators
   has_many :projects, through: :updates
+  has_one :wishlist
 
 end
