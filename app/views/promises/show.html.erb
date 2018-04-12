@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contribution:</strong>
+  <%= @promise.contribution %>
+</p>
+
+<p>
+  <strong>Donation:</strong>
+  <%= @promise.donation %>
+</p>
+
+<%= link_to 'Edit', edit_promise_path(@promise) %> |
+<%= link_to 'Back', promises_path %>

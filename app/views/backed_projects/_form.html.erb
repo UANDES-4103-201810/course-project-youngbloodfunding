@@ -1,0 +1,17 @@
+<%= form_with(model: backed_project, local: true) do |form| %>
+  <% if backed_project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(backed_project.errors.count, "error") %> prohibited this backed_project from being saved:</h2>
+
+      <ul>
+      <% backed_project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

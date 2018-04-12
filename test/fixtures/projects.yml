@@ -3,33 +3,17 @@
 one:
   name: MyString
   description: MyString
-  video: 
+  video: MyString
   images: MyString
-  array: MyString
-  project_date: MyString
-  date: MyString
   email: MyString
-  string: MyString
-  goal: MyString
-  integer: MyString
-  package_prices: MyString
-  array: MyString
-  delivery_dates: MyString
-  array: MyString
+  project_date: 2018-04-11
+  goal_amount: 
 
 two:
   name: MyString
   description: MyString
-  video: 
+  video: MyString
   images: MyString
-  array: MyString
-  project_date: MyString
-  date: MyString
   email: MyString
-  string: MyString
-  goal: MyString
-  integer: MyString
-  package_prices: MyString
-  array: MyString
-  delivery_dates: MyString
-  array: MyString
+  project_date: 2018-04-11
+  goal_amount: 

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bundle_name: MyString
+  bundle_description: MyString
+  bundle_price: 
+
+two:
+  bundle_name: MyString
+  bundle_description: MyString
+  bundle_price: 

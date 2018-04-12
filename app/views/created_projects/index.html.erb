@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Created Projects</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @created_projects.each do |created_project| %>
+      <tr>
+        <td><%= link_to 'Show', created_project %></td>
+        <td><%= link_to 'Edit', edit_created_project_path(created_project) %></td>
+        <td><%= link_to 'Destroy', created_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Created Project', new_created_project_path %>

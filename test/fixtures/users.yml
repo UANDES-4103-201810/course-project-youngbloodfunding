@@ -2,20 +2,14 @@
 
 one:
   name: MyString
-  last_name: MyString
-  string: MyString
+  lats_name: MyString
+  role: 
   email: MyString
-  string: MyString
   password: MyString
-  string: MyString
-  role: 1
 
 two:
   name: MyString
-  last_name: MyString
-  string: MyString
+  lats_name: MyString
+  role: 
   email: MyString
-  string: MyString
   password: MyString
-  string: MyString
-  role: 1
