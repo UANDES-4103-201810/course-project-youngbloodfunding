@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :name, length: { in: 2..30 }, presence: true
   validates :last_name, length: { in: 2..30 }, presence: true
   validates :password, length: { minimum: 8 }, presence: true
-  validates :email, presence: true #AGREGAR VALIDACION DE CORREO
+  validates :email, presence: true
   validates :role, numericality: { only_integer: true }, presence: true
 
 end
