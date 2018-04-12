@@ -13,6 +13,8 @@
 ActiveRecord::Schema.define(version: 20180412015109) do
 
   create_table "backed_projects", force: :cascade do |t|
+    t.string "backer_id"
+    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,17 +28,21 @@ ActiveRecord::Schema.define(version: 20180412015109) do
     t.string "account_type"
     t.string "account_number"
     t.string "bank_name"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "created_projects", force: :cascade do |t|
+    t.string "creator_id"
+    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "creators", force: :cascade do |t|
     t.string "company_name"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -45,6 +51,7 @@ ActiveRecord::Schema.define(version: 20180412015109) do
     t.string "bundle_name"
     t.string "bundle_description"
     t.integer "bundle_price"
+    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,6 +71,7 @@ ActiveRecord::Schema.define(version: 20180412015109) do
   create_table "promises", force: :cascade do |t|
     t.integer "contribution"
     t.string "donation"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,13 +79,15 @@ ActiveRecord::Schema.define(version: 20180412015109) do
   create_table "updates", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.string "user_id"
+    t.string "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "lats_name"
+    t.string "last_name"
     t.integer "role"
     t.string "email"
     t.string "password"
@@ -87,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180412015109) do
 
   create_table "wishlists", force: :cascade do |t|
     t.string "project_name"
+    t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
