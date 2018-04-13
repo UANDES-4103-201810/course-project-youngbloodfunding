@@ -4,6 +4,6 @@ class Project < ApplicationRecord
   validates :description, length: { maximum: 1000 }, presence: true
   validates :email, presence: true
   validates :goal_amount, numericality: { only_integer: true }, presence: true
-  validates :project_date, time: true, presence: true
+  validates :project_date, presence: true #verificar formato
 
 end
