@@ -1,16 +1,34 @@
-<h1><%= image_tag("logo.png", width: '150px') %></h1>
+<style type="text/css">
+  .jumbotron{
+    margin-top: 20px;
+    background-image: url("https://ep01.epimg.net/verne/imagenes/2017/02/07/articulo/1486460356_768109_1486460432_noticia_normal.jpg");
+    background-size: auto;
+  }
+</style>
+<div class="container">
+  <div class="jumbotron">
+    <h1 style="color: white">Welcome to YoungBlood Funding!</h1>
+    <p style="color: white">The startup company that you want!</p>
+    <p style="color: white">Created by: Gianluca Fenzo and Gianluca Troncossi</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Start your campaign</a></p>
+  </div>
+</div>
 
-<h2>Gianluca Fenzo</h2>
-<h2>Gianluca Troncossi</h2>
+<div class="row" >
+  <div class="col-sd-7 col-md-4" style="margin-left: 300px">
+    <a href="#" class="thumbnail" style="background-color: white">
+      <img src="https://ep01.epimg.net/verne/imagenes/2017/02/07/articulo/1486460356_768109_1486460432_noticia_normal.jpg" alt="...">
+      <h1 style="color: black">Most popular projects</h1>
+    </a>
+  </div>
+  <div class="col-sd-6 col-md-4">
+    <a href="#" class="thumbnail" style="background-color: white">
+      <img src="https://ep01.epimg.net/verne/imagenes/2017/02/07/articulo/1486460356_768109_1486460432_noticia_normal.jpg" alt="...">
+      <h1 style="color: black">Shop</h1>
+    </a>
+  </div>
+</div>
 <p></p>
 <body>
-  <ul id="nav-mobile" class="left hide-on-med-and-down">
-    <li><%= link_to "New User", new_user_path, class: 'btn btn-small btn-info' %></li>
-    <li><%= link_to "View All Users", users_path, class: 'btn btn-small btn-info' %></li>
-  </ul>
-  <ul id="nav-user" class="left hide-on-med-and-down">
-    <li><%= link_to "New Project", new_project_path, class: 'btn btn-small btn-info' %></li>
-    <li><%= link_to "View All Projects", projects_path, class: 'btn btn-small btn-info' %></li>
-  </ul>
 
 </body>
