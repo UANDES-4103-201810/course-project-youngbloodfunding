@@ -31,8 +31,19 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Start your campaign</a></li>
-            <li><a href="#">Log In</a></li>
-            <li><a href="/users/new">Sign Up</a></li>
+
+            <!--<li><a href="/users/sign_in">Log In</a></li>
+            <li><a href="/users/sign_up">Sign Up</a></li>
+            <li><a href="/users/sign_out">logout</a></li>-->
+
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.email, edit_user_registration_path %></li>
+              <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign Up", new_user_registration_path %></li>
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %>
+
 
             <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -54,6 +65,8 @@
         <li class="active"><a href="/projects">Contact Us <span class="sr-only">(current)</span></a></li>
       </ul>
     </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
