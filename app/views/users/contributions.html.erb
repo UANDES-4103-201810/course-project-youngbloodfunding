@@ -1,0 +1,12 @@
+<h2><%= @user.name%> <%= @user.last_name%></h2>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="enabled"><div><%= link_to 'Profile', profile_path(@user)%></div></li>
+  <li role="presentation" class="enabled"><div><%= link_to 'Campaigns', campaigns_path(@user)%></div></li>
+  <li role="presentation" class="enabled"><div><%= link_to 'Contributions', contributions_path(@user)%></div></li>
+  <li role="presentation" class="enabled"><div><%= link_to 'Wishlists', wishlists_path(@user)%></div></li>
+</ul>
+<hr>
+<h3>Contributions I'm funding</h3>
+
+

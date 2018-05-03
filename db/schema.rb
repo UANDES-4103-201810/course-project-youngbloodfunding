@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180502213841) do
   end
 
   create_table "promises", force: :cascade do |t|
-    t.integer "contribution"
+    t.integer "contributions"
     t.integer "donation"
     t.string "user_id"
     t.datetime "created_at", null: false
