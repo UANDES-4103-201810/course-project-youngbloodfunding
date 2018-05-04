@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   match '/users/:id/campaigns',   to: 'users#campaigns',   via:  'get',  as: 'campaigns'
   match '/users/:id/wishlists',   to: 'users#wishlists',   via:  'get',  as: 'wishlists'
   root 'home#index'
-
+  get 'home/index'
 
   resources :promises
   resources :updates
