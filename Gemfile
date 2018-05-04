@@ -59,3 +59,5 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'sprockets', '~> 3.7', '>= 3.7.1'
 gem 'devise'
+gem 'paperclip', '~> 6.0'
+

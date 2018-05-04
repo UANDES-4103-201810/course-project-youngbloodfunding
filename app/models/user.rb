@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :projects, through: :updates
   has_one :wishlist
 
-  validates :role, numericality: { only_integer: true }, presence: true
+  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
+
 
 end
