@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :created_projects, through: :creators
   has_many :projects, through: :updates
   has_one :wishlist
+
   validates :role, numericality: { only_integer: true }, presence: true
 
 end

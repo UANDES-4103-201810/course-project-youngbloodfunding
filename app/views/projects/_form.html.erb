@@ -11,42 +11,55 @@
     </div>
   <% end %>
 
+  <h2>First tell us the name of your new project:</h2>
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name, id: :project_name %>
   </div>
 
+  <div class="row">
+    <div class="col-md-2">
+      <div class="field">
+        <%= form.label :images %>
+        <%= form.text_field :images, id: :project_images %>
+      </div>
+    </div>
+
+    <div class="col-md-2">
+      <div class="field">
+        <%= form.label :video %>
+        <%= form.text_field :video, id: :project_video %>
+      </div>
+    </div>
+  </div>
+
+  <h2>Now let's add a description</h2>
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description, id: :project_description %>
+    <%= form.text_area :description, id: :project_description %>
   </div>
 
-  <div class="field">
-    <%= form.label :video %>
-    <%= form.text_field :video, id: :project_video %>
-  </div>
-
-  <div class="field">
-    <%= form.label :images %>
-    <%= form.text_field :images, id: :project_images %>
-  </div>
-
+  <h2>Add a project email!</h2>
   <div class="field">
     <%= form.label :email %>
     <%= form.text_field :email, id: :project_email %>
   </div>
 
+  <h2>Until when will last this project?</h2>
   <div class="field">
     <%= form.label :project_date %>
     <%= form.date_select :project_date, id: :project_project_date %>
   </div>
 
+  <h2>What's the goal amount?</h2>
   <div class="field">
     <%= form.label :goal_amount %>
     <%= form.text_field :goal_amount, id: :project_goal_amount %>
   </div>
 
+  <hr>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit %> <strong style="color: cornflowerblue"><-- Welcome to the YoungBlood Family!</strong>
   </div>
 <% end %>
