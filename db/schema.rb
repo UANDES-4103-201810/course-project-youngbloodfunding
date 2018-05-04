@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502213841) do
+ActiveRecord::Schema.define(version: 20180504012141) do
 
   create_table "backed_projects", force: :cascade do |t|
     t.string "backer_id"
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 20180502213841) do
   end
 
   create_table "promises", force: :cascade do |t|
-    t.integer "contributions"
+    t.integer "contribution"
     t.integer "donation"
     t.string "user_id"
     t.datetime "created_at", null: false
@@ -98,13 +98,16 @@ ActiveRecord::Schema.define(version: 20180502213841) do
     t.string "last_sign_in_ip"
     t.string "name"
     t.string "last_name"
-    t.string "picture"
     t.text "story"
     t.string "country"
     t.string "city"
     t.string "postal_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

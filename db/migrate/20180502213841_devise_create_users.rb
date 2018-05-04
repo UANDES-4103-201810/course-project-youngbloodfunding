@@ -34,7 +34,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
 
       t.string :name
       t.string :last_name
-      t.string :picture
       t.text :story
       t.string :country
       t.string :city
