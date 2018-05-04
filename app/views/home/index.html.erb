@@ -10,7 +10,9 @@
     <h1 style="color: white">Welcome to YoungBlood Funding!</h1>
     <p style="color: white">The startup company that you want!</p>
     <p style="color: white">Created by: Gianluca Fenzo and Gianluca Troncossi</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Start your campaign</a></p>
+    <% if user_signed_in? %>
+      <p><div class="btn btn-primary" style="margin-top: 5%"><strong><%= link_to "Start your campaign", new_project_path, {:style=>"color:#fff;"} %></strong></div></p>
+    <% end %>
   </div>
 </div>
 

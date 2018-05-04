@@ -30,13 +30,14 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Start your campaign</a></li>
+
 
             <!--<li><a href="/users/sign_in">Log In</a></li>
             <li><a href="/users/sign_up">Sign Up</a></li>
             <li><a href="/users/sign_out">logout</a></li>-->
 
             <% if user_signed_in? %>
+              <li><div class="btn btn-primary" style="margin-top: 5%"><%= link_to "Start your campaign", new_project_path, {:style=>"color:#fff;"} %></div></li>
               <li><%= link_to "Profile", current_user %>
               <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
 
