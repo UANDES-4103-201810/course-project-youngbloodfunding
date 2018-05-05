@@ -38,6 +38,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :country
       t.string :city
       t.string :postal_code
+      t.integer :role, default: 0
 
       t.timestamps null: false
     end

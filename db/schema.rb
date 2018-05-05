@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20180504012141) do
     t.string "country"
     t.string "city"
     t.string "postal_code"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"

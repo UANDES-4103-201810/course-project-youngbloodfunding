@@ -25,7 +25,7 @@
       </div>
       <h4>Raised by: <%= @project.goal_amount %> backers.</h4> <!--Insert ruby to check number of backers-->
       <h3>This project was created by: <%= @project.goal_amount %> </h3> <!--Insert ruby to check creators-->
-      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white">Back project</a></p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Back project</a></p>
       <p><a class="btn btn-default btn-md" href="#" role="button">Learn more</a></p>
       <h5><strong>Contact e-mail:</strong> <%= @project.email %></h5>
     </div>
@@ -73,6 +73,26 @@
 <h2><strong>Project date: </strong><%= @project.project_date %></h2>
 </p>
 
+<!-- Modal -->
+<div id="fundModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">You're doing a donation to the project: <%= @project.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render :partial => 'promises/form', :locals => {:promise => Promise.new} %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 
 

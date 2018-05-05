@@ -6,14 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create([{name: 'Admin', last_name: 'Admin', role: 1, email: 'admin@hola.com', password: 'hola'},
-                      {name: 'Gianluca', last_name:'Troncossi', role:1, email: 'gtroncossi@miuandes.cl', password: '0000', picture: 'admin_picture.jpg'},
-                      {name: 'Pepe', last_name: 'Apellido', role: 2, email: 'hola@hola.com', password: 'hola'},
-                      {name: 'Pepes', last_name: 'Apellidos', role: 2, email: 'hola1@hola.com', password: 'hola1'},
-                      {name: 'Pepea', last_name: 'Apellidoa', role: 2, email: 'hola2@hola.com', password: 'hola2'},
-                      {name: 'Peped', last_name: 'Apellidod', role: 2, email: 'hola3@hola.com', password: 'hola3'},
-                      {name: 'Pepef', last_name: 'Apellidof', role: 2, email: 'hola4@hola.com', password: 'hola4'},
-                      {name: 'Pepeg', last_name: 'Apellidog', role: 2, email: 'hola5@hola.com', password: 'hola5'},
-                      {name: 'Pepeh', last_name: 'Apellidoh', role: 2, email: 'hola6@hola.com', password: 'hola6'},
-                      {name: 'Pepej', last_name: 'Apellidoj', role: 2, email: 'hola7@hola.com', password: 'hola7'},
-                      {name: 'Pepek', last_name: 'Apellidok', role: 2, email: 'hola8@hola.com', password: 'hola8'}])
+User.create(name:"Admin", last_name:"Admin", role:1, email:"admin@hola.com", password:"12345678", password_confirmation:"12345678")
+User.create(name: 'Gianluca', last_name:'Troncossi', role:1, email: 'gtroncossi@miuandes.cl', password: '12345678', password_confirmation: '12345678')
+User.create(name: 'Pepe', last_name: 'Apellido', role: 0, email: 'hola@hola.com', password: '12345678', password_confirmation: '12345678')
+
+
+Project.create(name:"Plumbus", description:"plumbus it's a common thing", email:"rick@morty.tk", project_date:"25/01/2020" ,goal_amount:"124565")

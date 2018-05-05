@@ -47,15 +47,38 @@
               </div>
             </div>
             <p>
-               <div href="#" class="btn btn-primary" role="button" style="color: white">Fund</div>
+               <div href="#" class="btn btn-primary" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Fund</div>
                <div class="btn btn-default"><td style="color: white"><%= link_to 'Show', project %></td></div>
             </p>
           </div>
         </div>
       </div>
+      <!-- Modal -->
+      <div id="fundModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">You're doing a donation to the project: <%= project.name %></h4>
+            </div>
+            <div class="modal-body">
+              <%= render :partial => 'promises/form', :locals => {:promise => Promise.new} %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
+
+
+
 
 
 <br>

@@ -1,15 +1,24 @@
-<div class="btn btn-primary"><%= link_to 'Edit', edit_user_registration_path, {:style=>"color:#fff;"} %></div>
+
 
 <h2><%= @user.name%> <%= @user.last_name%></h2>
 
 <ul class="nav nav-pills">
   <li role="presentation" class="enabled"><div><%= link_to 'Profile', profile_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Campaigns', campaigns_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Contributions', contributions_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Wishlists', wishlists_path(@user)%></div></li>
+  <li role="presentation" class="enabled" style="margin-left: 10px"><div><%= link_to 'Campaigns', campaigns_path(@user)%></div></li>
+  <li role="presentation" class="enabled" style="margin-left: 10px"><div><%= link_to 'Contributions', contributions_path(@user)%></div></li>
+  <li role="presentation" class="enabled" style="margin-left: 10px"><div><%= link_to 'Wishlists', wishlists_path(@user)%></div></li>
 </ul>
 <hr>
 <h3>Profile</h3>
+<div class="btn btn-primary"><%= link_to 'Edit', edit_user_registration_path, {:style=>"color:#fff;"} %></div>
 <hr>
 
-<img  ><%= image_tag @user.image.url(:thumb) %>
+<img>Profile Image - <%= image_tag @user.image.url(:thumb) %>
+<div class="container">
+  <h4><%= @user.email%></h4>
+  <h4><%= @user.country%></h4>
+  <h4><%= @user.city%></h4>
+  <h4><%= @user.postal_code%></h4>
+  <h4><%= @user.story%></h4>
+</div>
+

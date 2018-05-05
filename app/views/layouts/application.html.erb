@@ -22,6 +22,12 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/projects">Projects <span class="sr-only">(current)</span></a></li>
+            <% if user_signed_in? &&
+                current_user.role == 1 %>
+              <li>
+                <div class="btn btn-primary" style="margin-top: 9%; margin-left: 10px"><%= link_to "Admin menu", new_project_path, {:style => "color:#fff;"} %></div>
+              </li>
+            <% end %>
           </ul>
           <form class="navbar-form navbar-left">
             <div class="form-group">
@@ -47,6 +53,8 @@
             <% end %>
 
 
+
+
             <!--<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -64,9 +72,25 @@
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/projects">Contact Us <span class="sr-only">(current)</span></a></li>
+        <li class="active" ><a href="#" data-toggle="modal" data-target="#contactModal">Contact Us <span class="sr-only">(current)</span></a></li>
       </ul>
     </nav>
+    <!-- Modal -->
+    <div id="contactModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <h2>Hey! contact us at the following email: fake@email.com</h2>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
