@@ -1,12 +1,63 @@
-<h2><%= @user.name%> <%= @user.last_name%></h2>
+<div class="row">
+  <div class="col-md-1"></div>
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="enabled"><div><%= link_to 'Profile', profile_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Campaigns', campaigns_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Contributions', contributions_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Wishlists', wishlists_path(@user)%></div></li>
-</ul>
-<hr>
-<h3>Contributions I'm funding</h3>
+  <div class="col-md-10"><h2><%= @user.name %> <%= @user.last_name %></h2>
+
+    <ul class="nav nav-pills">
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Profile', profile_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Campaigns', campaigns_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Contributions', contributions_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Wishlists', wishlists_path(@user) %></div>
+      </li>
+    </ul>
+    <hr>
+    <h3>Contributions I'm funding</h3>
+
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Campaign</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>12/02/2018</td>
+        <td>Plumbus</td>
+        <td>200</td>
+        <td>Approved</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>01/03/2018</td>
+        <td>Portal Gun</td>
+        <td>10000</td>
+        <td>Pending</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>12/12/2017</td>
+        <td>Little Bits</td>
+        <td>50</td>
+        <td>Approved</td>
+      </tr>
+      </tbody>
+    </table></div>
+
+  <div class="col-md-1"></div>
+</div>
+
 
 

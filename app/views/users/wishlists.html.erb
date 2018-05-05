@@ -1,10 +1,61 @@
-<h2><%= @user.name%> <%= @user.last_name%></h2>
+<div class="row">
+  <div class="col-md-1"></div>
 
-<ul class="nav nav-pills">
-  <li role="presentation" class="enabled"><div><%= link_to 'Profile', profile_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Campaigns', campaigns_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Contributions', contributions_path(@user)%></div></li>
-  <li role="presentation" class="enabled"><div><%= link_to 'Wishlists', wishlists_path(@user)%></div></li>
-</ul>
-<hr>
-<h3>My Wishlist</h3>
+  <div class="col-md-10"><h2><%= @user.name %> <%= @user.last_name %></h2>
+
+    <ul class="nav nav-pills">
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Profile', profile_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Campaigns', campaigns_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Contributions', contributions_path(@user) %></div>
+      </li>
+      <li role="presentation" class="enabled">
+        <div><%= link_to 'Wishlists', wishlists_path(@user) %></div>
+      </li>
+    </ul>
+    <hr>
+    <h3>My Wishlist</h3>
+
+    <div class="row align-items-center">
+      <div class="col-lg-10">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Campaign</th>
+            <th scope="col">Goal / Percentage</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Plumbus</td>
+            <td>10000/10% Completed</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Portal Gun</td>
+            <td>5/0.05% Completed</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Little Bits</td>
+            <td>100/100% Completed</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-1"></div>
+</div>
+
+
+
+
+
