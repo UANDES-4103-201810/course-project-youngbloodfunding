@@ -13,35 +13,19 @@
 ActiveRecord::Schema.define(version: 20180504012141) do
 
   create_table "backed_projects", force: :cascade do |t|
-    t.string "backer_id"
-    t.string "project_id"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "backers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_backed_projects_on_project_id"
+    t.index ["user_id"], name: "index_backed_projects_on_user_id"
   end
 
   create_table "bank_accounts", force: :cascade do |t|
     t.string "account_type"
     t.string "account_number"
     t.string "bank_name"
-    t.string "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "created_projects", force: :cascade do |t|
-    t.string "creator_id"
-    t.string "project_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "creators", force: :cascade do |t|
-    t.string "company_name"
     t.string "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -64,8 +48,10 @@ ActiveRecord::Schema.define(version: 20180504012141) do
     t.string "email"
     t.date "project_date"
     t.integer "goal_amount"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "promises", force: :cascade do |t|

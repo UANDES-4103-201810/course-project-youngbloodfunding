@@ -15,10 +15,7 @@ Rails.application.routes.draw do
   resources :updates
   resources :wishlists
   resources :bank_accounts
-  resources :backers
-  resources :creators
   resources :backed_projects
-  resources :created_projects
   resources :packages
   resources :projects
 

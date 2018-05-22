@@ -24,11 +24,11 @@ class BackedProjectsController < ApplicationController
   # POST /backed_projects
   # POST /backed_projects.json
   def create
-    @backed_project = BackedProject.new(backed_project_params)
+    @backed_project = BackedProject.create(backed_project_params)
 
     respond_to do |format|
       if @backed_project.save
-        format.html { redirect_to @backed_project, notice: 'Backed project was successfully created.' }
+        format.html { redirect_to @backed_project, notice: 'You Backed the project succesfully.' }
         format.json { render :show, status: :created, location: @backed_project }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class BackedProjectsController < ApplicationController
   def update
     respond_to do |format|
       if @backed_project.update(backed_project_params)
-        format.html { redirect_to @backed_project, notice: 'Backed project was successfully updated.' }
+        format.html { redirect_to @backed_project, notice: 'You Backed the project succesfully.' }
         format.json { render :show, status: :ok, location: @backed_project }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class BackedProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backed_project_params
-      params.fetch(:backed_project, {})
+      params.require(:backed_project).permit(:user_id, :project_id, :amount)
     end
 end

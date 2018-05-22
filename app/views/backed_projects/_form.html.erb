@@ -5,13 +5,14 @@
 
       <ul>
       <% backed_project.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="actions">
+
     <%= form.submit %>
   </div>
 <% end %>

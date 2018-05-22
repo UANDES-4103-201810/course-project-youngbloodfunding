@@ -1,5 +1,6 @@
 class BackedProject < ApplicationRecord
-  belongs_to :user, through: :backers
-  has_many :projects
+  belongs_to :user
+  belongs_to :project
   validates :user, presence: true
+  validates :project, presence: true
 end
