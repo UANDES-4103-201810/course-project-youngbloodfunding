@@ -23,8 +23,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def wishlists
+  def u_wishlists
     @user = User.find(params[:id])
+    @backed_projects = BackedProject.all
+    @project = Project.all
   end
 
 end

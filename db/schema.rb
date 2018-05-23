@@ -54,9 +54,11 @@ ActiveRecord::Schema.define(version: 20180522234645) do
     t.string "email"
     t.date "project_date"
     t.integer "goal_amount"
+    t.integer "category_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_projects_on_category_id"
     t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
@@ -106,8 +108,8 @@ ActiveRecord::Schema.define(version: 20180522234645) do
   end
 
   create_table "wishlists", force: :cascade do |t|
-    t.integer "project_id"
     t.integer "user_id"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_wishlists_on_project_id"
