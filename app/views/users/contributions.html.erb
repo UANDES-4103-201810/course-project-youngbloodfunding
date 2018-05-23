@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-md-1"></div>
+  <div class="col-md-1">
+
+  </div>
 
   <div class="col-md-10"><h2><%= @user.name %> <%= @user.last_name %></h2>
 
@@ -20,7 +22,6 @@
     <hr>
     <h3>Contributions I'm funding</h3>
 
-
     <table class="table table-hover">
       <thead>
       <tr>
@@ -32,32 +33,23 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>12/02/2018</td>
-        <td>Plumbus</td>
-        <td>200</td>
-        <td>Approved</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>01/03/2018</td>
-        <td>Portal Gun</td>
-        <td>10000</td>
-        <td>Pending</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>12/12/2017</td>
-        <td>Little Bits</td>
-        <td>50</td>
-        <td>Approved</td>
-      </tr>
+
+        <%= @backed_projects.where(user_id: current_user).each do |bk| %>
+        <%= project = @project.find(bk.project_id)%>
+        <tr>
+          <th scope="row">1</th>
+          <th><%= bk.created_at %></th>
+          <th><%= project.name %></th>
+          <th><%= bk.amount %></th>
+
+        </tr>
+      <% end %>
+
       </tbody>
     </table></div>
 
   <div class="col-md-1"></div>
-</div>
 
+</div>
 
 
