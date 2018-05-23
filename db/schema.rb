@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180504012141) do
+ActiveRecord::Schema.define(version: 20180522234645) do
 
   create_table "backed_projects", force: :cascade do |t|
     t.integer "user_id"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20180504012141) do
     t.string "account_number"
     t.string "bank_name"
     t.string "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -100,10 +106,12 @@ ActiveRecord::Schema.define(version: 20180504012141) do
   end
 
   create_table "wishlists", force: :cascade do |t|
-    t.string "project_name"
-    t.string "user_id"
+    t.integer "project_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_wishlists_on_project_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
 end

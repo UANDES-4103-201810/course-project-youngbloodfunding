@@ -2,7 +2,7 @@
 
 <p>
   <strong>Project name:</strong>
-  <%= @wishlist.project_name %>
+  <%= @project.find(@wishlist.project_id).name %>
 </p>
 
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |

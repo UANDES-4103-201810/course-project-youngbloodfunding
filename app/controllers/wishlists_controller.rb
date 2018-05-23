@@ -5,11 +5,13 @@ class WishlistsController < ApplicationController
   # GET /wishlists.json
   def index
     @wishlists = Wishlist.all
+    @project = Project.all
   end
 
   # GET /wishlists/1
   # GET /wishlists/1.json
   def show
+    @project = Project.all
   end
 
   # GET /wishlists/new
@@ -28,7 +30,7 @@ class WishlistsController < ApplicationController
 
     respond_to do |format|
       if @wishlist.save
-        format.html { redirect_to @wishlist, notice: 'Wishlist was successfully created.' }
+        format.html { redirect_to @wishlist, notice: 'Project added to your wishlist' }
         format.json { render :show, status: :created, location: @wishlist }
       else
         format.html { render :new }
@@ -69,6 +71,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:project_name)
+      params.require(:wishlist).permit(:project_id, :user_id)
     end
 end

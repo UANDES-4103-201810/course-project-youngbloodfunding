@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   has_many :packages
   belongs_to :user
+  has_one :category
   validates :name, length: { in: 1..50 }, presence: true, uniqueness: true
   validates :description, length: { maximum: 1000 }, presence: true
   validates :email, presence: true

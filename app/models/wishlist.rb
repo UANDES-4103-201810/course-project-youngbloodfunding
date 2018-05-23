@@ -1,5 +1,6 @@
 class Wishlist < ApplicationRecord
   belongs_to :user
+  belongs_to :project
   validates :user, presence: true
-  validates :project_name, presence: true
+  validates :project, presence: true
 end

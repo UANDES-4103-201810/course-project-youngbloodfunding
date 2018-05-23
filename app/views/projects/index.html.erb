@@ -64,18 +64,25 @@
               <h4 class="modal-title">You're doing a donation to the project: <%= project.name %></h4>
             </div>
             <div class="modal-body">
-              <%= render :partial => 'promises/form', :locals => {:promise => Promise.new} %>
-            </div>
-            <div class="modal-footer">
+              <%= form_for BackedProject.new do |bk| %>
+                <%= bk.hidden_field :project_id, :value => project.id %>
+                <%= bk.hidden_field :user_id, :value => current_user.id %>
+                <%= label_tag("Amount") %>
+                <%= bk.text_field :amount %>
+                </div>
+                <div class="modal-footer">
+                  <%= bk.submit "Create", class:"btn btn-primary" %>
+              <% end %>
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
+              </div>
 
         </div>
       </div>
     <% end %>
   </div>
 </div>
+</div>
+
 
 
 

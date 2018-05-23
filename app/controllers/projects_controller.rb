@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @wishlists = Wishlist.all
   end
 
   # GET /projects/new
@@ -73,6 +74,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :video, :images, :email, :project_date, :goal_amount, :user_id)
+      params.require(:project).permit(:name, :description, :video, :images, :email, :project_date, :goal_amount, :user_id, :category_id)
     end
 end

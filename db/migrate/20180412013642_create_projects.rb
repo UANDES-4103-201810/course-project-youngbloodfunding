@@ -8,6 +8,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.string :email
       t.date :project_date
       t.integer :goal_amount
+      t.references :category
       t.references :user
 
       t.timestamps

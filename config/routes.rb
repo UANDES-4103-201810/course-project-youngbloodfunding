@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   get 'users/index'
 
   devise_for :users, :path_prefix => 'd'
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   match '/users/:id',   to: 'users#show',       via: 'get', as: 'profile'
   match '/users/:id/contributions',   to: 'users#contributions',   via:  'get',  as: 'contributions'
   match '/users/:id/campaigns',   to: 'users#campaigns',   via:  'get',  as: 'campaigns'
-  match '/users/:id/wishlists',   to: 'users#wishlists',   via:  'get',  as: 'wishlists'
+
   root 'home#index'
   get 'home/index'
 

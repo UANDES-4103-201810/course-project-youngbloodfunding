@@ -1,0 +1,11 @@
+<div class="col-md-10"><h2><%= @user.name %> <%= @user.last_name %></h2>
+
+  <ul class="nav nav-pills">
+    <li role="presentation" class="enabled">
+      <div><%= link_to 'Users', users_index_path, {:style => "color:#fff;"}%></div>
+    </li>
+    <li role="presentation" class="enabled" style="margin-left: 10px">
+      <div><%= link_to 'Categories', categories_index_path, {:style => "color:#fff;"} %></div>
+    </li>
+  </ul>
+</div>
