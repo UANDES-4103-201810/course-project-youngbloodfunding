@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @backed_projects = BackedProject.all
     @project = Project.all
+    @wishlists = Wishlist.all
   end
 
 end
