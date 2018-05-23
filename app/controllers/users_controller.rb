@@ -12,10 +12,14 @@ class UsersController < ApplicationController
   end
 
   def contributions
+    @backed_projects = BackedProject.all
+    @project = Project.all
     @user = User.find(params[:id])
   end
 
   def campaigns
+    @backed_projects = BackedProject.all
+    @project = Project.all
     @user = User.find(params[:id])
   end
 
