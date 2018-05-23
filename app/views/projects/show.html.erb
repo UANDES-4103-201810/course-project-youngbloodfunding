@@ -26,7 +26,11 @@
       <h4>Raised by: <%= @project.goal_amount %> backers.</h4> <!--Insert ruby to check number of backers-->
       <h3>This project was created by: <%= @project.user.name %> </h3> <!--Insert ruby to check creators-->
       <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Back project</a></p>
-      <p><a class="btn btn-default btn-md" href="#" role="button" data-toggle="modal" data-target="#wishModal">Add to wishlist</a></p>
+      <% if @wishlists.where(user_id: current_user, project_id: @project.id).exists? %>
+        <p><a class="btn btn-default btn-md" href="#" role="button">Already added</a></p>
+      <% else %>
+        <p><a class="btn btn-success btn-md" href="#" role="button" data-toggle="modal" data-target="#wishModal" style="color: white">Add to wishlist</a></p>
+      <% end %>
       <h5><strong>Contact e-mail:</strong> <%= @project.email %></h5>
     </div>
 
