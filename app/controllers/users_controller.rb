@@ -18,7 +18,8 @@ class UsersController < ApplicationController
   end
 
   def campaigns
-
+    @backed_projects = BackedProject.all
+    @project = Project.all
     @user = User.find(params[:id])
   end
 
