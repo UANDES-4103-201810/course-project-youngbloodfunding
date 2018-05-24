@@ -21,18 +21,28 @@
     <h3>Profile</h3>
     <div class="btn btn-primary"><%= link_to 'Edit', edit_user_registration_path, {:style => "color:#fff;"} %></div>
     <hr>
-
-
-  <img <%= image_tag @user.image.url(:medium) %>>
-
-
-    <div class="container">
-      <h4><%= @user.email %></h4>
-      <h4><%= @user.country %></h4>
-      <h4><%= @user.city %></h4>
-      <h4><%= @user.postal_code %></h4>
-      <h4><%= @user.story %></h4>
-    </div></div>
+  <style>
+    img {
+      border-radius: 50%;
+    }
+  </style>
+    <div class="row align-items-start">
+      <div class="col">
+        <div class="col-lg-3">
+          <img <%= image_tag @user.image.url(:medium) %>>
+        </div>
+        <div class="col-lg-9">
+          <div class="well">
+            <h4><%= @user.email %></h4>
+            <h4><%= @user.country %></h4>
+            <h4><%= @user.city %></h4>
+            <h4><%= @user.postal_code %></h4>
+            <h4><%= @user.story %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="col-md-1"></div>
 </div>

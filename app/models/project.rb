@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   validates :goal_amount, numericality: { only_integer: true }, presence: true
   validates :project_date, presence: true #verificar formato
 
-  has_attached_file :image, styles: { large: "600x600>" ,medium: "300x300>", thumb: "150x150#" }, default_url: "/assets:style/anime_pic.jpg"
+  has_attached_file :image, styles: { large: "600x600>" ,medium: "300x300>", thumb: "150x150#" }, default_url: "/assets:style/tupac.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 
