@@ -30,4 +30,7 @@ class UsersController < ApplicationController
     @wishlists = Wishlist.all
   end
 
+  def admin
+  end
+
 end
