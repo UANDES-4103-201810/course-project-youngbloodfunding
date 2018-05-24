@@ -33,4 +33,10 @@ class UsersController < ApplicationController
   def admin
   end
 
+  def user_params
+    params.require(:user).permit(:image)
+  end
+
+
+
 end
