@@ -16,6 +16,10 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :project_name %>
   </div>
+  <div>
+    <%= form.label :category %>
+    <%= form.collection_select :category_id, Category.order(:name),:id,:name, include_blank: true %>
+  </div>
 
   <div class="row">
     <div class="col-md-2">
@@ -56,6 +60,7 @@
     <%= form.label :goal_amount %>
     <%= form.text_field :goal_amount, id: :project_goal_amount %>
   </div>
+
   <div>
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>

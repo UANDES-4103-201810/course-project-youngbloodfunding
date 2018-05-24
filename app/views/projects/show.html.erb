@@ -16,14 +16,14 @@
   <div class="row">
     <div class="col-lg-6">
       <h2 style="color: black; margin-left: 0.5%">
-        Money raised  / <%= @project.goal_amount %>
+        Money raised <%= @amount %> / <%= @project.goal_amount %>
       </h2>
       <div class="progress" style="max-width: 50%">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
-          <span class="sr-only">60% Complete</span>
+        <div class="progress-bar" role="progressbar" aria-valuenow="<%= (@amount.to_f/@project.goal_amount.to_f).to_f*100 %>%" aria-valuemin="0" aria-valuemax="100" style="width: <%= (@amount.to_f/@project.goal_amount.to_f).to_f*100 %>%;">
+          <span class="sr-only"><%= (@amount.to_f/@project.goal_amount.to_f).to_f*100 %>% Complete</span>
         </div>
       </div>
-      <h4>Raised by: <%= @project.goal_amount %> backers.</h4> <!--Insert ruby to check number of backers-->
+      <h4>Raised by: <%= @backer_count %> transactions.</h4> <!--Insert ruby to check number of backers-->
       <h3>This project was created by: <%= @project.user.name %> </h3> <!--Insert ruby to check creators-->
       <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Back project</a></p>
       <% if @wishlists.where(user_id: current_user, project_id: @project.id).exists? %>
