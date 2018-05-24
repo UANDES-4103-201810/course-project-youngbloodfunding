@@ -22,7 +22,10 @@
     <div class="btn btn-primary"><%= link_to 'Edit', edit_user_registration_path, {:style => "color:#fff;"} %></div>
     <hr>
 
-    <img>Profile Image - <%= image_tag @user.image.url(:thumb) %>
+
+  <img <%= image_tag @user.image.url(:medium) %>>
+
+
     <div class="container">
       <h4><%= @user.email %></h4>
       <h4><%= @user.country %></h4>

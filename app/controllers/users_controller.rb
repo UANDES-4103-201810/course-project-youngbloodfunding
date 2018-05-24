@@ -30,4 +30,10 @@ class UsersController < ApplicationController
     @wishlists = Wishlist.all
   end
 
+  def user_params
+    params.require(:user).permit(:image)
+  end
+
+
+
 end
