@@ -14,7 +14,7 @@
         <div><%= link_to 'Contributions', contributions_path(@user) %></div>
       </li>
       <li role="presentation" class="enabled" style="margin-left: 10px">
-        <div><%= link_to 'Wishlists', wishlists_path(@user) %></div>
+        <div><%= link_to 'Wishlists', u_wishlists_path(@user) %></div>
       </li>
     </ul>
     <hr>
@@ -31,21 +31,15 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Plumbus</td>
-            <td>10000/10% Completed</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Portal Gun</td>
-            <td>5/0.05% Completed</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Little Bits</td>
-            <td>100/100% Completed</td>
-          </tr>
+          <%= @wishlists.where(user_id: current_user).each do |wish| %>
+            <%= project = @project.find(wish.project_id)%>
+            <tr>
+              <th scope="row">1</th>
+              <td><%= project.name %></td>
+              <td><%= project.goal_amount %></td>
+            </tr>
+          <% end %>
+
           </tbody>
         </table>
       </div>

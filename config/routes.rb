@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   match '/users/:id/contributions',   to: 'users#contributions',   via:  'get',  as: 'contributions'
   match '/users/:id/campaigns',   to: 'users#campaigns',   via:  'get',  as: 'campaigns'
 
+  match '/users/:id/u_wishlists',   to: 'users#u_wishlists',   via:  'get',  as: 'u_wishlists'
+
+
+
   root 'home#index'
   get 'home/index'
 
