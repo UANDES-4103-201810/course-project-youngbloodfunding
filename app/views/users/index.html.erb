@@ -1,45 +1,45 @@
-
-
-<h1>This is the User index!</h1>
-<h2>All Users:</h2>
-<div class="row">
-  <div class="col-sm">
-    <div class="form-group">
-      <input type="text" class="form-control" placeholder="Search">
+<% if user_signed_in? && current_user.role == 1 %>
+  <h1>This is the User index!</h1>
+  <h2>All Users:</h2>
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+    </div>
+    <div class="col-sm">
+      <button type="submit" class="btn btn-default">Submit</button>
     </div>
   </div>
-  <div class="col-sm">
-    <button type="submit" class="btn btn-default">Submit</button>
+  <br>
+
+
+    <% @users = User.all %>
+    <% @users.each do |user| %>
+      <ul class="list-group">
+        <li class="list-group-item">
+            <table>
+              <tbody>
+              <tr>
+                <td width="45%">
+                  <h4><%= user.name %></h4>
+                  <h5><%= user.email %></h5>
+                </td>
+                <td width="35%">
+                  <p>Number of projects: </p>
+                  <p>Number of contributions: </p>
+                </td>
+                <td width="20%">
+                  <button type="submit" class="btn btn-default">View</button>
+                  <button type="submit" class="btn btn-primary">Edit</button>
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+        </li>
+      </ul>
+    <% end %>
   </div>
-</div>
-<br>
-
-
-  <% @users = User.all %>
-  <% @users.each do |user| %>
-    <ul class="list-group">
-      <li class="list-group-item">
-          <table>
-            <tbody>
-            <tr>
-              <td width="45%">
-                <h4><%= user.name %></h4>
-                <h5><%= user.email %></h5>
-              </td>
-              <td width="35%">
-                <p>Number of projects: </p>
-                <p>Number of contributions: </p>
-              </td>
-              <td width="20%">
-                <button type="submit" class="btn btn-default">View</button>
-                <button type="submit" class="btn btn-primary">Edit</button>
-                <button type="submit" class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-
-      </li>
-    </ul>
-  <% end %>
-</div>
+<% end %>

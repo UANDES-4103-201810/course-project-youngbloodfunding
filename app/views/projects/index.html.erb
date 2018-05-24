@@ -26,9 +26,9 @@
       <h3 style="color: black; margin-left: 0.5%">
         <strong>Categories</strong>
       </h3>
-      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Trending</a></p>
-      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Technology</a></p>
-      <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue">Wearable</a></p>
+      <% @categories.each do |category| %>
+        <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue"><%= category.name %></a></p>
+      <% end %>
 
     </div>
 
