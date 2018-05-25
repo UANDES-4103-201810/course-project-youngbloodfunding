@@ -15,10 +15,12 @@ ActiveRecord::Schema.define(version: 20180524204607) do
   create_table "backed_projects", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
+    t.integer "promise_id"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_backed_projects_on_project_id"
+    t.index ["promise_id"], name: "index_backed_projects_on_promise_id"
     t.index ["user_id"], name: "index_backed_projects_on_user_id"
   end
 
@@ -67,11 +69,14 @@ ActiveRecord::Schema.define(version: 20180524204607) do
   end
 
   create_table "promises", force: :cascade do |t|
-    t.integer "contribution"
-    t.integer "donation"
-    t.string "user_id"
+    t.string "name"
+    t.integer "price"
+    t.string "description"
+    t.date "estimated_delivery"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_promises_on_project_id"
   end
 
   create_table "updates", force: :cascade do |t|

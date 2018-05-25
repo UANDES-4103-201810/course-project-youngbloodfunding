@@ -1,5 +1,5 @@
 class Project < ApplicationRecord
-  has_many :packages
+  has_many :promises
   belongs_to :user
   has_one :category
   validates :name, length: { in: 1..50 }, presence: true, uniqueness: true

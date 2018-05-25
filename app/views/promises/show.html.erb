@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Contribution:</strong>
-  <%= @promise.contribution %>
+  <strong>Project id:</strong>
+  <%= @promise.project.id %>
 </p>
 
 <p>
-  <strong>Donation:</strong>
-  <%= @promise.donation %>
+  <strong>Price:</strong>
+  <%= @promise.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @promise.description %>
+</p>
+
+<p>
+  <strong>Delivery date:</strong>
+  <%= @promise.estimated_delivery %>
 </p>
 
 <%= link_to 'Edit', edit_promise_path(@promise) %> |

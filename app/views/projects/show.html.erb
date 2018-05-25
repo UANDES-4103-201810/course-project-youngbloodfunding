@@ -15,6 +15,11 @@
 <div class="container-fluid" style="margin-left: 0.5%">
   <div class="row">
     <div class="col-lg-6">
+      <% if user_signed_in? && current_user.id == @project.user_id %>
+        <li>
+          <p><a class="btn btn-success btn-md" href="#" role="button" data-toggle="modal" data-target="#addPromiseModal" style="color: white">Add promise</a></p>
+        </li>
+      <% end %>
       <h2 style="color: black; margin-left: 0.5%">
         Money raised <%= @amount %> / <%= @project.goal_amount %>
       </h2>
@@ -25,7 +30,8 @@
       </div>
       <h4>Raised by: <%= @backer_count %> transactions.</h4> <!--Insert ruby to check number of backers-->
       <h3>This project was created by: <%= @project.user.name %> </h3> <!--Insert ruby to check creators-->
-      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Back project</a></p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Donate to project</a></p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button" style="color: white" data-toggle="modal" data-target="#promiseModal">Fund a Promise</a></p>
       <% if @wishlists.where(user_id: current_user, project_id: @project.id).exists? %>
         <p><a class="btn btn-default btn-md" href="#" role="button">Already added</a></p>
       <% else %>
@@ -93,6 +99,67 @@
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
+
+  </div>
+</div>
+
+<!-- PromisefundModal -->
+<div id="promiseModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">You're doing a donation to the project: <%= @project.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for BackedProject.new do |pk| %>
+          <%= pk.hidden_field :project_id, :value => @project.id %>
+          <%= pk.hidden_field :user_id, :value => current_user.id %>
+          <%= label_tag("Select your promise") %>
+          <%= pk.collection_select :promise_id, Promise.order(:name),:id,:name, include_blank: true %>
+          <%= label_tag("Confirm your selection") %>
+          <%= pk.collection_select :amount, Promise.order(:name),:price,:name, include_blank: true %>
+          </div>
+          <div class="modal-footer">
+            <%= pk.submit "Create", class:"btn btn-primary" %>
+        <% end %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+
+  </div>
+</div>
+
+<!-- AddPromiseModal -->
+<div id="addPromiseModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">You're creating a promise for the project: <%= @project.name %></h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for Promise.new do |pr| %>
+          <%= label_tag("Name") %>
+          <%= pr.text_field :name %>
+          <%= label_tag("Price") %>
+          <%= pr.text_field :price %>
+          <%= label_tag("Description") %>
+          <%= pr.text_area :description %>
+          <%= label_tag ("Delivery Date") %>
+          <%= pr.date_select :estimated_delivery, id: :promise_estimated_delivery %>
+          <%= pr.hidden_field :project_id, :value => @project.id %>
+          </div>
+          <div class="modal-footer">
+            <%= pr.submit "Create", class:"btn btn-primary" %>
+        <% end %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
 
   </div>
 </div>
