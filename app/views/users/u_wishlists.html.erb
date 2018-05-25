@@ -31,8 +31,8 @@
           </tr>
           </thead>
           <tbody>
-          <%= @wishlists.where(user_id: current_user).each do |wish| %>
-            <%= project = @project.find(wish.project_id)%>
+          <% @wishlists.where(user_id: current_user).each do |wish| %>
+            <% project = @project.find(wish.project_id)%>
             <tr>
               <th scope="row">1</th>
               <td><%= project.name %></td>

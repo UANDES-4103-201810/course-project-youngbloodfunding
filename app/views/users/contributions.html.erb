@@ -34,8 +34,8 @@
       </thead>
       <tbody>
 
-        <%= @backed_projects.where(user_id: current_user).each do |bk| %>
-        <%= project = @project.find(bk.project_id)%>
+        <% @backed_projects.where(user_id: current_user).each do |bk| %>
+        <% project = @project.find(bk.project_id)%>
         <tr>
           <th scope="row">1</th>
           <th><%= bk.created_at %></th>

@@ -20,7 +20,7 @@
     <hr>
     <h3>Campaigns I'm participating</h3>
 
-    <%= @project.where(user_id: current_user, ).each do |project| %>
+    <% @project.where(user_id: current_user, ).each do |project| %>
 
     <div class="container">
       <table>
