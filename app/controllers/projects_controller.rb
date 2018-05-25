@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   def show
     @wishlists = Wishlist.all
     @backed = BackedProject.all
+    @promises = Promise.where(project_id: @project)
     @amount = 0
     @backer_count = 0
     @backed.where(project_id: @project).each do |bk|

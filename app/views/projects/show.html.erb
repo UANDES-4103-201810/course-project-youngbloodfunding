@@ -61,6 +61,20 @@
 
 </div>
 
+<div class="container" style="margin-left: 0.5%; margin-top: 15px; box-shadow: 5px 5px 2.5px grey">
+  <p style="font-size: medium">
+    <strong style="font-size: large">Promises:</strong>
+    <% @promises.each do |promise| %>
+      <h3> Name: <%= promise.name %> </h3>
+      <h4> Price: <%= promise.price %> </h4>
+      <h5> Description: <%= promise.description %> </h5>
+    <% end %>
+  </p>
+
+</div>
+
+
+
 
 <div class="container" style="margin-left: 0.5%; margin-top: 15px">
   <div class="row">
