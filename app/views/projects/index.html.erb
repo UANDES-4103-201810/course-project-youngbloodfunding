@@ -16,9 +16,13 @@
       <h3 style="color: black; margin-left: 0.5%">
         <strong>Categories</strong>
       </h3>
-      <% @categories.each do |category| %>
-        <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue"><%= category.name %></a></p>
+      <%= form_tag projects_path, :method => 'get' do %>
+        <%= collection_select :project, :category_id, Category.all, :id ,:name, prompt: true %>
+        <%= submit_tag "Filter by Category",class: "btn btn-primary" %>
       <% end %>
+      <%# @categories.each do |category| %>
+<!--        <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue"><%#= category.name %></a></p>-->
+      <%# end %>
 
     </div>
 
@@ -33,7 +37,6 @@
               <hr />
               <h5 style="color: #999999">Project Goal: <%= project.goal_amount %> USD</h5>
               <p>
-                 <div href="#" class="btn btn-primary" role="button" style="color: white" data-toggle="modal" data-target="#fundModal">Fund</div>
                  <div class="btn btn-default"><td style="color: white"><%= link_to 'Show', project %></td></div>
                  <% if user_signed_in? && current_user.role == 1 %>
                      <div class="btn btn-success" style="margin-top: 9%; margin-left: 10px"><%= link_to "Edit", edit_project_path(project), {:style => "color:#fff;"} %></div>
@@ -43,56 +46,7 @@
             </div>
           </div>
         </div>
-        <!-- Modal -->
-          <div id="fundModal" class="modal fade" role="dialog">
-              <div class="modal-dialog">
 
-                <!-- Modal content-->
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">You're doing a donation to the project: <%= project.name %></h4>
-                  </div>
-                  <div class="modal-body">
-                    <%= form_for BackedProject.new do |bk| %>
-                      <%= bk.hidden_field :project_id, :value => project.id %>
-                      <%= bk.hidden_field :user_id, :value => current_user.id %>
-                      <%= label_tag("Amount") %>
-                      <%= bk.text_field :amount %>
-                      </div>
-                      <div class="modal-footer">
-                        <%= bk.submit "Create", class:"btn btn-primary" %>
-                    <% end %>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-              </div>
-          </div>
-        <!-- Modal -->
-          <div id="promiseModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">You're doing a donation to the project: <%= project.name %></h4>
-                </div>
-                <div class="modal-body">
-                  <%= form_for BackedProject.new do |bk| %>
-                    <%= bk.hidden_field :project_id, :value => project.id %>
-                    <%= bk.hidden_field :user_id, :value => current_user.id %>
-                    <%= label_tag("Amount") %>
-                    <%= bk.text_field :amount %>
-                    </div>
-                    <div class="modal-footer">
-                      <%= bk.submit "Create", class:"btn btn-primary" %>
-                  <% end %>
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                  </div>
-            </div>
-          </div>
         </div>
     <% end %>
   </div>

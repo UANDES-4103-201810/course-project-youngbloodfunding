@@ -87,121 +87,122 @@
 <p style="margin-top: 60px">
 <h2><strong>Project date: </strong><%= @project.project_date %></h2>
 </p>
+<% if user_signed_in? %>
+  <!-- FundModal -->
+  <div id="fundModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-<!-- FundModal -->
-<div id="fundModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">You're doing a donation to the project: <%= @project.name %></h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for BackedProject.new do |bk| %>
+            <%= bk.hidden_field :project_id, :value => @project.id %>
+            <%= bk.hidden_field :user_id, :value => current_user.id %>
+            <%= label_tag("Amount") %>
+            <%= bk.text_field :amount %>
+        </div>
+        <div class="modal-footer">
+          <%= bk.submit "Create", class:"btn btn-primary" %>
+          <% end %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">You're doing a donation to the project: <%= @project.name %></h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for BackedProject.new do |bk| %>
-          <%= bk.hidden_field :project_id, :value => @project.id %>
-          <%= bk.hidden_field :user_id, :value => current_user.id %>
-          <%= label_tag("Amount") %>
-          <%= bk.text_field :amount %>
-      </div>
-      <div class="modal-footer">
-        <%= bk.submit "Create", class:"btn btn-primary" %>
-        <% end %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
-
   </div>
-</div>
 
-<!-- PromisefundModal -->
-<div id="promiseModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <!-- PromisefundModal -->
+  <div id="promiseModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">You're doing a donation to the project: <%= @project.name %></h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for BackedProject.new do |pk| %>
-          <%= pk.hidden_field :project_id, :value => @project.id %>
-          <%= pk.hidden_field :user_id, :value => current_user.id %>
-          <%= label_tag("Select your promise") %>
-          <%= pk.collection_select :promise_id, Promise.order(:name),:id,:name, include_blank: true %>
-          <%= label_tag("Confirm your selection") %>
-          <%= pk.collection_select :amount, Promise.order(:name),:price,:name, include_blank: true %>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">You're buying a promise of this project: <%= @project.name %></h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for BackedProject.new do |pk| %>
+            <%= pk.hidden_field :project_id, :value => @project.id %>
+            <%= pk.hidden_field :user_id, :value => current_user.id %>
+            <%= label_tag("Select your promise") %>
+            <%= pk.collection_select :promise_id, Promise.order(:name),:id,:name, include_blank: true %>
+            <%= label_tag("Confirm your selection") %>
+            <%= pk.collection_select :amount, Promise.order(:name),:price,:name, include_blank: true %>
+            </div>
+            <div class="modal-footer">
+              <%= pk.submit "Create", class:"btn btn-primary" %>
+          <% end %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-          <div class="modal-footer">
-            <%= pk.submit "Create", class:"btn btn-primary" %>
-        <% end %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        </div>
-
-  </div>
-</div>
-
-<!-- AddPromiseModal -->
-<div id="addPromiseModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">You're creating a promise for the project: <%= @project.name %></h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for Promise.new do |pr| %>
-          <%= label_tag("Name") %>
-          <%= pr.text_field :name %>
-          <%= label_tag("Price") %>
-          <%= pr.text_field :price %>
-          <%= label_tag("Description") %>
-          <%= pr.text_area :description %>
-          <%= label_tag ("Delivery Date") %>
-          <%= pr.date_select :estimated_delivery, id: :promise_estimated_delivery %>
-          <%= pr.hidden_field :project_id, :value => @project.id %>
           </div>
-          <div class="modal-footer">
-            <%= pr.submit "Create", class:"btn btn-primary" %>
-        <% end %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        </div>
 
+    </div>
   </div>
-</div>
 
-<!-- Wishlist Modal -->
-<div id="wishModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <!-- AddPromiseModal -->
+  <div id="addPromiseModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">You're adding the project: <%= @project.name %> to your wishlist</h4>
-      </div>
-      <div class="modal-body">
-        <h5>Are you sure?</h5>
-        <%= form_for Wishlist.new do |wl| %>
-          <%= wl.hidden_field :project_id, :value => @project.id %>
-          <%= wl.hidden_field :user_id, :value => current_user.id %>
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">You're creating a promise for the project: <%= @project.name %></h4>
+        </div>
+        <div class="modal-body">
+          <%= form_for Promise.new do |pr| %>
+            <%= label_tag("Name") %>
+            <%= pr.text_field :name %>
+            <%= label_tag("Price") %>
+            <%= pr.text_field :price %>
+            <%= label_tag("Description") %>
+            <%= pr.text_area :description %>
+            <%= label_tag ("Delivery Date") %>
+            <%= pr.date_select :estimated_delivery, id: :promise_estimated_delivery %>
+            <%= pr.hidden_field :project_id, :value => @project.id %>
+            </div>
+            <div class="modal-footer">
+              <%= pr.submit "Create", class:"btn btn-primary" %>
+          <% end %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
-          <div class="modal-footer">
-            <%= wl.submit "Add", class:"btn btn-primary" %>
-        <% end %>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-        </div>
+          </div>
 
+    </div>
   </div>
-</div>
 
+  <!-- Wishlist Modal -->
+  <div id="wishModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">You're adding the project: <%= @project.name %> to your wishlist</h4>
+        </div>
+        <div class="modal-body">
+          <h5>Are you sure?</h5>
+          <%= form_for Wishlist.new do |wl| %>
+            <%= wl.hidden_field :project_id, :value => @project.id %>
+            <%= wl.hidden_field :user_id, :value => current_user.id %>
+            </div>
+            <div class="modal-footer">
+              <%= wl.submit "Add", class:"btn btn-primary" %>
+          <% end %>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+          </div>
+
+    </div>
+  </div>
+
+<% end %>
 
 
 

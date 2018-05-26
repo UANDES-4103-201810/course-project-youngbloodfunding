@@ -2,13 +2,6 @@ Integrantes:
 Gianluca Fenzo
 Gianluca Troncossi
 
-Entity Relatiionship Model (Explanation):
-The model is formed by 4 main entities and other 7 necessary entities.
-User: This table, houses the main data of users, users also have roles, which separates administrator, from users and identifies backers, creators or both for each user.
-Projects: Contains all the data for each project, such as video, images (stored as strings), Project name etc.
-Backers & Created: Both tables are used for the case where not a single user has a project but a group of people, so by creators, we would see all members of a group with there company name, backers is the same principle as creators. 
-Now the other 7 tables,
-Created_projects & Backed_projects: This two tables where only created for the N to N relationship between creators & projects and backers & projects.
-Bank_account, wishlist & promises: All are used to store multivariable information of users.
-Package_price: Use to store multivariable information of projects. 
+In this part of the course project, we implemented all the funding cycle and also most of the admin buttons, we couldn't implement the Admin user delete and edit method, but everything else should work, also we had a little problems with the modals, some times the submit button doesn't work for some reason, but refreshing the page is enough to get it back to work.
+Also we coudn't get to download images, but with right click you can.
 
