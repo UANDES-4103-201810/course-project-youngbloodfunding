@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20180524204607) do
     t.integer "goal_amount"
     t.integer "category_id"
     t.integer "user_id"
+    t.integer "outstanding", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"

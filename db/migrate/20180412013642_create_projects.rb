@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration[5.1]
       t.integer :goal_amount
       t.references :category
       t.references :user
+      t.integer :outstanding, default: 0
 
       t.timestamps
     end

@@ -42,4 +42,6 @@
       </ul>
     <% end %>
   </div>
+<% else %>
+  <% controller.redirect_to root_path, alert: 'You don`t have permission to see this page.' %>
 <% end %>
