@@ -60,4 +60,7 @@ gem 'sprockets-rails', '~> 3.2', '>= 3.2.1'
 gem 'sprockets', '~> 3.7', '>= 3.7.1'
 gem 'devise'
 gem 'paperclip', '~> 6.0'
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
