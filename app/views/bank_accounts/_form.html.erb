@@ -11,9 +11,18 @@
     </div>
   <% end %>
 
+
+
+
+
+
+
   <div class="field">
     <%= form.label :account_type %>
-    <%= form.text_field :account_type, id: :bank_account_account_type %>
+    <%= form.radio_button(:account_type, "Cuenta Vista") %>
+    <%= label_tag(:account_type, "Cuenta Vista") %>
+    <%= form.radio_button(:account_type, "Credito") %>
+    <%= label_tag(:account_type, "Credito") %>
   </div>
 
   <div class="field">

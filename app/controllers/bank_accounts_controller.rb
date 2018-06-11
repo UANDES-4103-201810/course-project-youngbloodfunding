@@ -19,6 +19,7 @@ class BankAccountsController < ApplicationController
 
   # GET /bank_accounts/1/edit
   def edit
+
   end
 
   # POST /bank_accounts
@@ -42,7 +43,7 @@ class BankAccountsController < ApplicationController
   def update
     respond_to do |format|
       if @bank_account.update(bank_account_params)
-        format.html { redirect_to @bank_account, notice: 'Bank account was successfully updated.' }
+        format.html { redirect_to u_bank_accounts_path, notice: 'Bank account was successfully updated.' }
         format.json { render :show, status: :ok, location: @bank_account }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class BankAccountsController < ApplicationController
   def destroy
     @bank_account.destroy
     respond_to do |format|
-      format.html { redirect_to bank_accounts_url, notice: 'Bank account was successfully destroyed.' }
+      format.html { redirect_to u_bank_accounts_path, notice: 'Bank account was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

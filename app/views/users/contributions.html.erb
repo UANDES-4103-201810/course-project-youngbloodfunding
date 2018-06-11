@@ -19,7 +19,7 @@
         <div><%= link_to 'Wishlists', u_wishlists_path(@user) %></div>
       </li>
       <li role="presentation" class="enabled" style="margin-left: 10px">
-        <div><%= link_to 'Bank Account', bank_accounts_path %></div>
+        <div><%= link_to 'Bank Account', u_bank_accounts_path %></div>
       </li>
     </ul>
     <hr>
@@ -36,16 +36,17 @@
       </tr>
       </thead>
       <tbody>
-
+      <% i = 1%>
         <% @backed_projects.where(user_id: current_user).each do |bk| %>
         <% project = @project.find(bk.project_id)%>
         <tr>
-          <th scope="row">1</th>
+          <th scope="row"><%= i %></th>
           <th><%= bk.created_at %></th>
           <th><%= link_to project.name, project %></th>
           <th><%= bk.amount %></th>
 
         </tr>
+        <% i = i + 1%>
       <% end %>
 
       </tbody>
