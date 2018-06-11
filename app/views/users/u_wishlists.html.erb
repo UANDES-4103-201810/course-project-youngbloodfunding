@@ -35,7 +35,7 @@
             <% project = @project.find(wish.project_id)%>
             <tr>
               <th scope="row">1</th>
-              <td><%= project.name %></td>
+              <td><%= link_to project.name, project %></td>
               <td><%= project.goal_amount %></td>
             </tr>
           <% end %>
