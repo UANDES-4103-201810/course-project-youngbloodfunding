@@ -30,6 +30,11 @@ class UsersController < ApplicationController
     @wishlists = Wishlist.all
   end
 
+  def bank_accounts
+    @user = User.find(params[:id])
+    @bank_accounts = BankAccount.all
+  end
+
   def admin
   end
 
