@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20180609230704) do
     t.string "account_type"
     t.string "account_number"
     t.string "bank_name"
-    t.string "user_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bank_accounts_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|

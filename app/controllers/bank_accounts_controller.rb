@@ -25,7 +25,7 @@ class BankAccountsController < ApplicationController
   # POST /bank_accounts.json
   def create
     @bank_account = BankAccount.new(bank_account_params)
-
+    @user = current_user.id
     respond_to do |format|
       if @bank_account.save
         format.html { redirect_to @bank_account, notice: 'Bank account was successfully created.' }
@@ -69,6 +69,6 @@ class BankAccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bank_account_params
-      params.require(:bank_account).permit(:account_type, :account_number, :bank_name)
+      params.require(:bank_account).permit(:account_type, :account_number, :bank_name, :user_id)
     end
 end
