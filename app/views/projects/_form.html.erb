@@ -65,7 +65,13 @@
     <%= form.hidden_field :user_id, :value => current_user.id %>
   </div>
 
-
+  <% if user_signed_in? && current_user.role == 1 %>
+    <h2>This project is outstanding? (0 = NO, 1 = YES)</h2>
+    <div class="field">
+      <%= form.label :outstanding %>
+      <%= form.text_field :outstanding, id: :project_outstanding %>
+    </div>
+  <% end %>
 
   <hr>
 

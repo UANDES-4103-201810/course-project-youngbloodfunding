@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   def index
     if params[:project] and params[:project][:category_id]
       @projects = Project.search(params[:project][:category_id])
+    elsif params[:search]
+      @projects = Project.search(params[:search]).order("created_at DESC")
     else
       @projects = Project.all
     end
@@ -86,6 +88,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :description, :video, :image, :email, :project_date, :goal_amount, :user_id, :category_id)
+      params.require(:project).permit(:name, :description, :video, :image, :email, :project_date, :goal_amount, :user_id, :category_id, :outstanding)
     end
 end

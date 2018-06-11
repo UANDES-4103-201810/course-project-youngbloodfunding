@@ -9,6 +9,9 @@
   <h1 style="color: white; margin-left: 50px">These are the projects</h1>
 </div>
 
+<% if @projects.blank? %>
+  <h4 style="color: #730E15">There are no projects containing the term <%= params[:search] %>.</h4>
+<% end %>
 
 <div class="container-fluid" style="margin-left: 0.5%">
   <div class="row">
@@ -19,6 +22,14 @@
       <%= form_tag projects_path, :method => 'get' do %>
         <%= collection_select :project, :category_id, Category.all, :id ,:name, prompt: true %>
         <%= submit_tag "Filter by Category",class: "btn btn-primary" %>
+      <% end %>
+      <hr />
+      <h3>
+        <strong>Search by name</strong>
+      </h3>
+      <%= form_tag(projects_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+        <%= submit_tag "Search", :name => nil %>
       <% end %>
       <%# @categories.each do |category| %>
 <!--        <p><a class="btn btn-link btn-md" href="#" role="button" style="color: cornflowerblue"><%#= category.name %></a></p>-->
@@ -33,6 +44,9 @@
           <div class="thumbnail">
             <div class="caption">
               <img <%=image_tag project.image.url(:medium)%>
+              <% if project.outstanding == 1 %>
+                <h2 style="color: darkorange"> This project is outstanding</h2>
+              <% end %>
               <h3><%= project.name %></h3>
               <hr />
               <h5 style="color: #999999">Project Goal: <%= project.goal_amount %> USD</h5>

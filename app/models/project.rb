@@ -12,7 +12,7 @@ class Project < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   def self.search(search)
-    where("category_id LIKE ?","%#{search}")
+    where("category_id LIKE ? OR name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 
