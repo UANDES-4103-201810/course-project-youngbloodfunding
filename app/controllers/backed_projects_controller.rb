@@ -69,6 +69,6 @@ class BackedProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def backed_project_params
-      params.require(:backed_project).permit(:user_id, :project_id, :amount, :promise_id)
+      params.require(:backed_project).permit(:user_id, :project_id, :amount, :promise_id, :bank_account_id)
     end
 end

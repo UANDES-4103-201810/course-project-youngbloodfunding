@@ -104,6 +104,8 @@
             <%= bk.hidden_field :user_id, :value => current_user.id %>
             <%= label_tag("Amount") %>
             <%= bk.text_field :amount %>
+            <%= label_tag("Payment method?") %>
+            <%= bk.collection_select :bank_account_id, BankAccount.where(user_id: current_user).order(:account_type),:id,:account_type, include_blank: true %>
         </div>
         <div class="modal-footer">
           <%= bk.submit "Create", class:"btn btn-primary" %>
@@ -133,6 +135,8 @@
             <%= pk.collection_select :promise_id, Promise.order(:name),:id,:name, include_blank: true %>
             <%= label_tag("Confirm your selection") %>
             <%= pk.collection_select :amount, Promise.order(:name),:price,:name, include_blank: true %>
+            <%= label_tag("Payment method?") %>
+            <%= pk.collection_select :bank_account_id, BankAccount.where(user_id: current_user).order(:account_type),:id,:account_type, include_blank: true %>
             </div>
             <div class="modal-footer">
               <%= pk.submit "Create", class:"btn btn-primary" %>

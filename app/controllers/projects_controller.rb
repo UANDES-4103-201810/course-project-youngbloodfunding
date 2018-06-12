@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
     @backed.where(project_id: @project).each do |bk|
       @amount += bk.amount
       @backer_count += 1
+    @payment = BankAccount.where(user_id: current_user)
     end
   end
 

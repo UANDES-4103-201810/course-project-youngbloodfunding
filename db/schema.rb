@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(version: 20180609230704) do
     t.integer "user_id"
     t.integer "project_id"
     t.integer "promise_id"
+    t.integer "bank_account_id"
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["bank_account_id"], name: "index_backed_projects_on_bank_account_id"
     t.index ["project_id"], name: "index_backed_projects_on_project_id"
     t.index ["promise_id"], name: "index_backed_projects_on_promise_id"
     t.index ["user_id"], name: "index_backed_projects_on_user_id"
