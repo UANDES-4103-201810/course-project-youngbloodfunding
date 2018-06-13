@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   resources :updates
   resources :wishlists
   resources :bank_accounts
-  resources :backed_projects
+  resources :backed_projects do
+    member do
+      get :confirm_email
+    end
+  end
   resources :packages
   resources :projects
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609230704) do
+ActiveRecord::Schema.define(version: 20180613012544) do
 
   create_table "backed_projects", force: :cascade do |t|
     t.integer "user_id"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20180609230704) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "email_confirmation", default: false
+    t.string "confirm_token"
     t.index ["bank_account_id"], name: "index_backed_projects_on_bank_account_id"
     t.index ["project_id"], name: "index_backed_projects_on_project_id"
     t.index ["promise_id"], name: "index_backed_projects_on_promise_id"

@@ -1,0 +1,4 @@
+Hi <%= @user.name %>
+
+Thanks for funding!, to confirm your fund, please click the link below:
+<%= confirm_email_backed_project_url(@backed_project.confirm_token) %>>

@@ -21,6 +21,18 @@ class BackedProjectsController < ApplicationController
   def edit
   end
 
+  def confirm_email
+    backed_project = BackedProject.find_by_confirm_token(params[:id])
+    if backed_project_params
+      backed_project.email_activate
+      flash[:success] = 'Thanks for funding'
+      redirect_to root_url
+    else
+      flash[:error] = 'Error.'
+      redirect_to root_url
+    end
+  end
+
   # POST /backed_projects
   # POST /backed_projects.json
   def create
@@ -28,7 +40,8 @@ class BackedProjectsController < ApplicationController
 
     respond_to do |format|
       if @backed_project.save
-        format.html { redirect_to @backed_project, notice: 'You Backed the project succesfully.' }
+        BackedProjectMailer.backer_confirmation(@backed_project, current_user).deliver
+        format.html { redirect_to @backed_project, notice: 'You Backed the project succesfully, Please confirm your in your email imbox' }
         format.json { render :show, status: :created, location: @backed_project }
       else
         format.html { render :new }
